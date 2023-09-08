@@ -1,8 +1,8 @@
 import React, { useState } from "react"; // Import useState
-import Filter from "../components/Filtered";
+import RightFilter from "../components/rightFilter";
 import { Link } from "react-router-dom";
 
-function Home() {
+function RightSidevd() {
   const [selectedFilter, setSelectedFilter] = useState("all"); // Initialize with "all"
   // ...
   const videos = [
@@ -14,7 +14,7 @@ function Home() {
         "https://yt3.ggpht.com/ZXdU2_la3sKTncWwYaF-sU3jCDaFsIG_uQC6tOmhgqsFsUDLNlDytibY-4NSx0xOWWbp2HIV=s48-c-k-c0x00ffffff-no-rj",
       title: "web design by reactjs for frontEnd",
       channelName: "Akil",
-      subscribers: "123K ",
+      subscribers: "50k Views . 1 Year ago ",
       dataItem: "css", // Filter category
     },
     {
@@ -303,7 +303,7 @@ function Home() {
       thumbnailSrc:
         "https://i.ytimg.com/vi/TIu_KrdWO1M/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLDLqKSmYVVX8CXu8Q1n5jL9Mtpiiw",
       channelIconSrc:
-        "		https://yt3.ggpht.com/ytc/AOPolaQtlu0PGwRzx9cBYqccwGgJquizsY8oLzj-c7mNGQ=s68-c-k-c0x00ffffff-no-rj",
+        "					https://yt3.ggpht.com/ytc/AOPolaQtlu0PGwRzx9cBYqccwGgJquizsY8oLzj-c7mNGQ=s68-c-k-c0x00ffffff-no-rj",
       title: "21+ Browser Dev Tools & Tips You Need To Know",
       channelName: "GorkCoder",
       subscribers: "2.4M",
@@ -351,37 +351,57 @@ function Home() {
       : videos.filter((video) => video.dataItem === selectedFilter);
 
   return (
-    <div
-      style={{ position: "absolute", left: "2rem", top: "120px", zIndex: "9" }}
-      className="main"
-    >
-      <Filter
-        selectedFilter={selectedFilter}
-        setSelectedFilter={setSelectedFilter}
-      />
-      <div className="video-container">
-        {filteredVideos.map((video) => (
-          <Link to={`/video/${video.id}`} key={video.id}>
-            <div className="video box">
-              <img className="thumbnail" src={video.thumbnailSrc} alt="" />
-
-              <div className="content">
+    <div style={{}}>
+      <div
+        style={{
+          width: "480px",
+          height: "100vh",
+          marginTop: "40px",
+          position: "relative",
+        }}
+      >
+        <RightFilter
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
+        />
+        <div style={{ marginTop: "2rem" }} className=" right_video-container">
+          {filteredVideos.map((video) => (
+            <Link
+              to={`/video/${video.id}`}
+              key={video.id}
+              className="text-decoration-none"
+            >
+              <div
+                style={{
+                  width: "240px",
+                  marginBottom: "-50px",
+                }}
+                className=" d-flex video box"
+              >
                 <img
-                  className="thumbnail channel-icon"
-                  src={video.channelIconSrc}
+                  className="right_thumbnail"
+                  src={video.thumbnailSrc}
                   alt=""
                 />
-                <div className="info">
-                  <h4 className="title_1">{video.title}</h4>
-                  <p className="channel-name">{video.channelName}</p>
-                  <p className="views">{video.subscribers} subscribers</p>
+
+                <div className=" content">
+                  {/* <img
+                    className="thumbnail channel-icon"
+                    src={video.channelIconSrc}
+                    alt=""
+                  /> */}
+                  <div style={{ width: "10rem" }} className="info ">
+                    <h3 className="title_1 ">{video.title}</h3>
+                    <p className="channel-name">{video.channelName}</p>
+                    <p className=" views">{video.subscribers} subscribers</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
 }
-export default Home;
+export default RightSidevd;

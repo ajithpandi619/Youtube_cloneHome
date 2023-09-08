@@ -1,15 +1,16 @@
-import "../components/FilteredCss.css";
-function Filter({ selectedFilter, setSelectedFilter }) {
+import "../components/rightFilter.css";
+function RightFilter({ selectedFilter, setSelectedFilter }) {
   return (
     <div>
       <div
         style={{
-          width: " 80%",
-          position: "fixed",
-          backgroundColor: "black",
-          height: "80px",
+          position: "absolute",
+          height: "60px",
+          left: "20px",
+          top: "-68px",
+          width: "86%",
         }}
-        className="mt-4 ms-4 filters btn-group d-flex fs-6 "
+        className="mt-4 ms-4 filters btn-group_right d-flex fs-6 "
       >
         <button
           onClick={() => setSelectedFilter("all")} // Update selected filter to "all"
@@ -113,4 +114,4 @@ function Filter({ selectedFilter, setSelectedFilter }) {
     </div>
   );
 }
-export default Filter;
+export default RightFilter;

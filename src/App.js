@@ -28,7 +28,7 @@ function App() {
             <Route path="/history" element={<History />} />
             <Route path="/yourvideos" element={<YourVideos />} />
             <Route path="/watchlater" element={<WatchLater />} />
-            <Route path="/likedvideos" element={<LikedVideos />} />
+            <Route path="/likedvideos/" element={<LikedVideos />} />
 
             <Route path="/video/:videoId" element={<VideoPage></VideoPage>} />
           </Routes>
