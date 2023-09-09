@@ -112,7 +112,7 @@ const VideoPage = () => {
     >
       <div className="content">
         <iframe
-          name={`v${videoId}`}
+          // name={`v${videoId}`}
           width="750px"
           height="450px"
           src={video.videoUrl}

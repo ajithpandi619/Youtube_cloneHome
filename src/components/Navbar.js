@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { HiOutlineBars3, HiMagnifyingGlass } from "react-icons/hi2";
 import { MdMic } from "react-icons/md";
 import { BiVideoPlus } from "react-icons/bi";
-import { NavLink } from "react-router-dom";
+
 import { FaRegBell } from "react-icons/fa";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
@@ -71,7 +71,7 @@ function Newnavbar() {
       {/* --------------------- Side Bar Start--------------------- */}
 
       <aside className={`navigate-links ${isActive ? "activate" : "null"}`}>
-        <NavLink
+        <Link
           activeclassName="active"
           to="/"
           key="0"
@@ -81,8 +81,8 @@ function Newnavbar() {
             <FaHome />
           </span>
           <span className={`${isActive}`}>Home</span>
-        </NavLink>
-        <NavLink
+        </Link>
+        <Link
           key="1"
           to="/shorts"
           className={`navlinks ${isActive}`}
@@ -92,8 +92,8 @@ function Newnavbar() {
             <BsFillPlayCircleFill />
           </span>
           <span className={`${isActive}`}>Shorts</span>
-        </NavLink>
-        <NavLink
+        </Link>
+        <Link
           key="2"
           to="/subscription"
           activeclassName="active"
@@ -103,9 +103,9 @@ function Newnavbar() {
             <BsFillCollectionPlayFill />
           </span>
           <span v>Subscription</span>
-        </NavLink>
+        </Link>
         <hr className={`${isActive} text-white me-2`} />
-        <NavLink
+        <Link
           key="3"
           to="/library"
           activeclassName="active"
@@ -115,8 +115,8 @@ function Newnavbar() {
             <MdOutlineVideoLibrary />
           </span>
           <span className={`${isActive}`}>Library</span>
-        </NavLink>
-        <NavLink
+        </Link>
+        <Link
           to="/history"
           key="4"
           activeclassName="active"
@@ -126,8 +126,8 @@ function Newnavbar() {
             <BiHistory />
           </span>
           <span className={`${isActive}`}>History</span>
-        </NavLink>
-        <NavLink
+        </Link>
+        <Link
           to="/yourvideos"
           key="5"
           activeclassName="active"
@@ -137,8 +137,8 @@ function Newnavbar() {
             <BsPlayBtn />
           </span>
           <span className={`${isActive}`}>Your Videos</span>
-        </NavLink>
-        <NavLink
+        </Link>
+        <Link
           to="/watchlater"
           key="6"
           activeclassName="active"
@@ -148,8 +148,8 @@ function Newnavbar() {
             <MdOutlineWatchLater />
           </span>
           <span className={`${isActive}`}>Watch Later</span>
-        </NavLink>
-        <NavLink
+        </Link>
+        <Link
           to="/likedvideos"
           key="7"
           activeclassName="active"
@@ -159,7 +159,7 @@ function Newnavbar() {
             <BiLike />
           </span>
           <span className={`${isActive}`}>Liked Videos</span>
-        </NavLink>
+        </Link>
       </aside>
 
       {/* --------------------- Side Bar End----------------------- */}

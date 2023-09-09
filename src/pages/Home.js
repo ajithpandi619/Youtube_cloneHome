@@ -1,7 +1,7 @@
 import React, { useState } from "react"; // Import useState
 import Filter from "../components/Filtered";
 import { Link } from "react-router-dom";
-
+import "../components/Home.css";
 function Home() {
   const [selectedFilter, setSelectedFilter] = useState("all"); // Initialize with "all"
   // ...
@@ -164,7 +164,7 @@ function Home() {
     {
       id: 15,
       thumbnailSrc:
-        "	https://i.ytimg.com/vi/7T3gVzKHOlU/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLDiQiLzGQLRLrXIHqfaUtp5CqkmFg",
+        "https://th.bing.com/th/id/OIP.x8Fp9uOPgEaQdig7hV70qwHaGa?pid=ImgDet&rs=1",
       channelIconSrc:
         "https://yt3.ggpht.com/sm9KjocCAAXBPB5gyBMk24j6ZWk2t8nOw2ID_00u5fiS2qBH3MIiphaklt5wq91KeSCHwlCz=s48-c-k-c0x00ffffff-no-rj",
       title:
@@ -221,7 +221,7 @@ function Home() {
     {
       id: 20,
       thumbnailSrc:
-        "https://i.ytimg.com/vi/G4O3Hon8Sh0/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLA8wFrJMJ-OIUDkaoSQYJzsMBnWAA",
+        "https://d3ui957tjb5bqd.cloudfront.net/uploads/2021/12/02080547/Website-Navigation-Bar-Examples-to-Enhance-Your-Web-Design_FeaturedImage_Vertical-700x950.jpeg",
       channelIconSrc:
         "https://yt3.ggpht.com/ytc/AOPolaReFpOoeq7FZ3A0u6MOKndgE57CV-5vpqGIlt4yBA=s48-c-k-c0x00ffffff-no-rj",
       title: "Building website with C++",
@@ -303,7 +303,7 @@ function Home() {
       thumbnailSrc:
         "https://i.ytimg.com/vi/TIu_KrdWO1M/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLDLqKSmYVVX8CXu8Q1n5jL9Mtpiiw",
       channelIconSrc:
-        "		https://yt3.ggpht.com/ytc/AOPolaQtlu0PGwRzx9cBYqccwGgJquizsY8oLzj-c7mNGQ=s68-c-k-c0x00ffffff-no-rj",
+        "					https://yt3.ggpht.com/ytc/AOPolaQtlu0PGwRzx9cBYqccwGgJquizsY8oLzj-c7mNGQ=s68-c-k-c0x00ffffff-no-rj",
       title: "21+ Browser Dev Tools & Tips You Need To Know",
       channelName: "GorkCoder",
       subscribers: "2.4M",
@@ -349,10 +349,17 @@ function Home() {
     selectedFilter === "all"
       ? videos
       : videos.filter((video) => video.dataItem === selectedFilter);
+  let histryvideo = [];
+  const historyvideo = (video) => {
+    const savedHistory = JSON.parse(localStorage.getItem("historyvid")) || [];
+    histryvideo.push(video);
+    const updatedHistory = [...savedHistory, ...histryvideo];
+    localStorage.setItem("historyvid", JSON.stringify(updatedHistory));
+  };
 
   return (
     <div
-      style={{ position: "absolute", left: "2rem", top: "120px", zIndex: "9" }}
+      style={{ position: "absolute", left: "14rem", top: "120px", zIndex: "9" }}
       className="main"
     >
       <Filter
@@ -361,7 +368,13 @@ function Home() {
       />
       <div className="video-container">
         {filteredVideos.map((video) => (
-          <Link to={`/video/${video.id}`} key={video.id}>
+          <Link
+            to={`/video/${video.id}`}
+            key={video.id}
+            onClick={() => {
+              historyvideo(video);
+            }}
+          >
             <div className="video box">
               <img className="thumbnail" src={video.thumbnailSrc} alt="" />
 
